@@ -1,11 +1,11 @@
 import React from 'react';
-import NavigationBar from './NavigationBar';
-import Content from './Content';
+import NavigationBar from '../pages/NavigationBar';
+import Content from '../pages/Content';
 
 class App extends React.Component {
   render(){
     return(
-      <div className="container">
+      <div className="w3-container">
         <NavigationBar />
         <Content />
       </div>
