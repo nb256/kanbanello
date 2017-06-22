@@ -50,7 +50,14 @@ export default class Lane extends React.Component {
       cards: this.state.cards.concat([{
           id: id,
           title: 'new caaard',
-          note: 'new note'+id
+          note: 'new note'+id,
+          labels: [
+            {
+              id: 1,
+              text: 'exLabel3',
+              color: 'green'
+            }
+          ]
       }])
     });
   }

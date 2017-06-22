@@ -1,4 +1,7 @@
 import React from 'react';
+import Label from './Label';
+let id= 3000;
+
 const deleteButtonStyle={
   position:"absolute",
   right:"10px",
@@ -10,9 +13,11 @@ export default class Card extends React.Component {
     this.state = {
       id: this.props.card.id,
       note : this.props.card.note,
-      title : this.props.card.title
+      title : this.props.card.title,
+      labels: this.props.card.labels
     };
-
+    this.addLabel = this.addLabel.bind(this);
+    this.deleteLabel = this.deleteLabel.bind(this);
   }
 
   render() {
@@ -29,8 +34,8 @@ export default class Card extends React.Component {
             <p>{this.state.note}</p>
             <hr/>
             <p>
-              <span className="w3-tag w3-blue">New!</span>
-              <span className="w3-tag w3-red">New2!</span>
+            {this.state.labels.map(label =>
+                <Label key={label.id} label={label} onDelete={this.deleteLabel}/>)}
             </p>
           </div>
         </div>
@@ -38,6 +43,21 @@ export default class Card extends React.Component {
     );
   }
 
+  addLabel() {
+    id++;
+    this.setState({
+      labels: this.state.labels.concat([{
+          id: id,
+          text: 'newlab',
+          color: 'blue'
+      }])
+    });
+  }
 
+  deleteLabel (id) {
+    this.setState({
+      labels: this.state.labels.filter(label => label.id !== id)
+    });
+  }
 
 }

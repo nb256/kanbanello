@@ -17,12 +17,26 @@ export default class Home extends React.Component {
             {
               id: 1,
               title: 'Card One',
-              note: 'Learn React'
+              note: 'Learn React',
+              labels: [
+                {
+                  id: 1,
+                  text: 'exLabel',
+                  color: 'blue'
+                }
+              ]
             },
             {
               id: 2,
               title: 'Card Two',
-              note: 'Do laundry'
+              note: 'Do laundry',
+              labels: [
+                {
+                  id: 1,
+                  text: 'exLabel2',
+                  color: 'red'
+                }
+              ]
             }
           ]
         }
@@ -44,6 +58,7 @@ export default class Home extends React.Component {
           {this.state.lanes.map(lane =>
             <Lane key={lane.id} lane={lane} onDelete={this.deleteLane} />
           )}
+          {console.log(this.state.lanes)}
         </div>
       </div>
     );
@@ -59,7 +74,14 @@ export default class Home extends React.Component {
             {
               id: 1,
               title: 'new card',
-              note: 'Learn Rasdfeact'
+              note: 'Learn Rasdfeact',
+              labels: [
+                {
+                  id: 1,
+                  text: 'exLabel3',
+                  color: 'green'
+                }
+              ]
             }
           ]
       }])
