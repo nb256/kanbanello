@@ -11,28 +11,28 @@ export default class Home extends React.Component {
     this.state = {
       lanes: [
         {
-          id: 1,
+          id: 800,
           title: 'Lane One',
           cards: [
             {
-              id: 1,
+              id: 1800,
               title: 'Card One',
               note: 'Learn React',
               labels: [
                 {
-                  id: 1,
+                  id: 2800,
                   text: 'exLabel',
                   color: 'blue'
                 }
               ]
             },
             {
-              id: 2,
+              id: 1801,
               title: 'Card Two',
               note: 'Do laundry',
               labels: [
                 {
-                  id: 1,
+                  id: 2801,
                   text: 'exLabel2',
                   color: 'red'
                 }

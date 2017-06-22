@@ -2,10 +2,10 @@ import React from 'react';
 import Label from './Label';
 let id= 3000;
 
-const deleteButtonStyle={
-  position:"absolute",
-  right:"10px",
-  top:"8px"
+const deleteButtonStyle =  {
+    position:"absolute",
+    right:"10px",
+    top:"8px"
 };
 export default class Card extends React.Component {
   constructor(props) {
