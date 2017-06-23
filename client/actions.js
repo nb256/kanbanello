@@ -9,10 +9,9 @@ allLanes: state
 
 const mapDispatchToProps = (dispatch) => ({
 onCreateLane() {
-  id++;
   dispatch({
       type: 'ADD_LANE',
-        id: id,
+        id: new Date().getUTCMilliseconds(),
         title: 'tittt',
         cards: []
     });
@@ -34,12 +33,10 @@ onEditLane(laneId, title) {
 
 onCreateCard(laneid, card)
 {
-  id++;
-  const cardid=id;
   dispatch({
       type: 'ADD_CARD',
       laneid,
-      cardid,
+      cardid: new Date().getUTCMilliseconds(),
       card
     });
 },

@@ -45,13 +45,17 @@ function reducers(state = [], action) {
 
       return state.map(lane => {
         if(lane.id == action.laneid) {
-            return lane.cards.map(card => {
+            const newCards =  lane.cards.map(card => {
               if(card.id == action.card.id)
               {
                 return action.card;
               }
               return card;
-            })
+            });
+            return Object.assign({}, lane,
+            {
+              cards: newCards
+            });
         }
         return lane;
       });

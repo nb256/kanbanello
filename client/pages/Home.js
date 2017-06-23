@@ -5,7 +5,7 @@ import AddCardModal from '../components/addCardModal';
 import actions from '../actions';
 
 
-let addCardModalId = "id123123";
+let addCardModalId = new Date().getUTCMilliseconds();
 
 class Home extends React.Component {
   constructor(props) {

@@ -17,7 +17,6 @@ export default class AddCardModal extends React.Component{
     e.preventDefault();
     const laneid = this.refs.lane.options[this.refs.lane.selectedIndex].value;
     this.props.onCreateCard(laneid,{
-      id:213,
       title: this.refs.title.value,
       note: this.refs.note.value,
       labels:[]
