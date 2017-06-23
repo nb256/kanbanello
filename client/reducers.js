@@ -30,7 +30,7 @@ function reducers(state = [], action) {
 
     case 'ADD_CARD':
       return state.map(lane => {
-        if(lane.id === action.laneid) {
+        if(lane.id == action.laneid) {
           action.card.id = action.cardid;
           return Object.assign({}, lane,
           {
@@ -68,12 +68,5 @@ function reducers(state = [], action) {
   }
 }
 
-
-
-
-// export default combineReducers({
-//   lanes,
-//   cards
-// });
 
 export default reducers;

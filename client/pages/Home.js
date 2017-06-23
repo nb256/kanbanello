@@ -6,6 +6,7 @@ import actions from '../actions';
 
 
 let addCardModalId = "id123123";
+let editLaneModalId = "id123125";
 
 class Home extends React.Component {
   constructor(props) {
@@ -27,10 +28,11 @@ class Home extends React.Component {
         <button  className="w3-button w3-black"  onClick={() =>
           document.getElementById(addCardModalId).style.display='block'} >
           + New Card</button>
-        <div className="w3-row">
+        <div className="w3-row" >
         {this.props.allLanes.map(lane =>
           <Lane key={lane.id} lane={lane} onDeleteLane={this.props.onDeleteLane}
-          onCreateCard={this.props.onCreateCard} onDeleteCard={this.props.onDeleteCard}/>
+          onCreateCard={this.props.onCreateCard} onDeleteCard={this.props.onDeleteCard}
+          editLaneModalId={editLaneModalId} onEditLane={this.props.onEditLane}/>
         )}
 
         </div>

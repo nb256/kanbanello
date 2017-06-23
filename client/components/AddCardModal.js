@@ -12,17 +12,22 @@ const formElementsStyle = {
   }
 
 export default class AddCardModal extends React.Component{
-  constructor(props) {
-    super(props);
-    this.handleKeypress = this.handleKeypress.bind(this);
-  }
 
-  handleKeypress(e){
-
+  handleSubmit(e){
+    e.preventDefault();
+    const laneid = this.refs.lane.options[this.refs.lane.selectedIndex].value;
+    this.props.onCreateCard(laneid,{
+      id:213,
+      title: this.refs.title.value,
+      note: this.refs.note.value,
+      labels:[]
+    })
+    document.getElementById(this.props.modalId).style.display='none'
   }
 
   render(){
-    console.log(this.props)
+    this.handleSubmit = this.handleSubmit.bind(this);
+
     return (
     <div id={this.props.modalId} className="w3-modal">
       <div className="w3-modal-content w3-animate-top">
@@ -31,25 +36,26 @@ export default class AddCardModal extends React.Component{
           className="w3-button w3-display-topright">&times;</span>
           <h2>New Card</h2>
         </header>
-        <form style={formElementsStyle} className="w3-container" >
-          <label>Select Lane to Add a Card</label>
-          <select className="w3-select" >
+        <form style={formElementsStyle} className="w3-container" onSubmit={this.handleSubmit}>
+          <label><h4>Select Lane to Add a Card</h4></label>
+          <select className="w3-select" ref="lane">
             {this.props.allLanes.map(lane =>
             <option key={lane.id} value={lane.id}>{lane.title}</option>)}
           </select>
-          <br/><br/><br/>
-          <label>Card Title</label>
-          <input className="w3-input" onKeyPress={this.handleKeypress}/>
+          <br/>
+          <label><h4>Card Title</h4></label>
+          <input className="w3-input" ref="title"/>
 
-          <label>Card Note</label>
-          <input className="w3-input" onKeyPress={this.handleKeypress}/>
+          <label><h4>Card Note</h4></label>
+          <input className="w3-input" ref="note" />
+          <br/><br/>
 
-        </form>
         <footer className="w3-container w3-red">
-          <button style={submitButtonStyle} className="w3-button w3-blue" type="submit">
+          <button style={submitButtonStyle} className="w3-btn w3-green" type="submit">
           Add Card
           </button>
         </footer>
+        </form>
       </div>
     </div> );
   }
