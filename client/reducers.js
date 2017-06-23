@@ -1,4 +1,4 @@
-import {combineReducers}  from 'redux';
+// import {combineReducers}  from 'redux';
 
 
 function reducers(state = [], action) {
@@ -34,20 +34,34 @@ function reducers(state = [], action) {
           return Object.assign({}, lane,
           {
             cards: [...lane.cards,
-            {
-              id: action.id,
-              title: action.title,
-              note: action.note,
-              labels: action.labels
-            }]
+            action.card]
           });
-          return lane;
         }
         return lane;
       });
 
       case 'UPDATE_CARD':
-        return state;
+      return state.map(lane => {
+        if(lane.id === action.laneid) {
+            lane.cards.map(card => {
+              if(card.id === action.id)
+              {
+                return Object.assign({}, card,
+                action.card);
+              }
+              return card;
+            })
+        }
+        return lane;
+      });
+
+      case 'DELETE_CARD':
+      return state.map(lane => {
+        if(lane.id === action.laneid) {
+          lane.cards.filter(card => card.id !== action.id);
+        }
+        return lane;
+      }
 
     default:
       return state;
@@ -55,14 +69,7 @@ function reducers(state = [], action) {
 }
 
 
-function cards(state = [], action) {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return state.concat([action.text])
-    default:
-      return state
-  }
-}
+
 
 // export default combineReducers({
 //   lanes,

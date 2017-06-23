@@ -5,10 +5,10 @@ import Content from '../pages/Content';
 class App extends React.Component {
   render(){
     return(
-      <div className="w3-container">
-        <NavigationBar />
-        <Content />
-      </div>
+        <div className="w3-container">
+          <NavigationBar />
+          <Content />
+        </div>
     );
   }
 }

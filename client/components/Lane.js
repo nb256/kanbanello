@@ -28,7 +28,7 @@ export default class Lane extends React.Component {
         <div className="w3-col m2 w3-center" style={laneStyle}>
           <div className="w3-tooltip">
             <span style={deleteButtonStyle} className="w3-text">
-              <i className="fa fa-window-close" onClick={() => this.props.onDelete(this.state.id)}>
+              <i className="fa fa-window-close" onClick={() => this.props.onDeleteLane(this.state.id)}>
               </i>
             </span>
             <header className="w3-container w3-light-grey">
