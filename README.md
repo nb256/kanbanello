@@ -14,8 +14,6 @@ http://localhost:3000
 ```
 
 
-[LIVE DEMO](https://vocal-hero.firebaseapp.com/)
-
 
 ## Authors
 
