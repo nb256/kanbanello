@@ -75,9 +75,7 @@ function reducers(state = [], action) {
               if(card.id == action.cardid)
               {
 
-                const newLabels = Object.assign({}, card.labels,
-                  [...card.labels,
-                  action.label]);
+                const newLabels = [...card.labels, action.label];
 
                   console.log(card.labels)
                   console.log(newLabels)
