@@ -44,11 +44,11 @@ onCreateCard(laneid, card)
     });
 },
 
-onEditCard(laneId, card)
+onEditCard(laneid, card)
 {
   dispatch({
       type: 'UPDATE_CARD',
-      laneid: laneId,
+      laneid,
       card
     });
 },

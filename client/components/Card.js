@@ -1,6 +1,6 @@
 import React from 'react';
 import Label from './Label';
-let id= 3000;
+import EditCardModal from '../components/EditCardModal';
 
 const deleteButtonStyle =  {
     position:"absolute",
@@ -12,36 +12,37 @@ const editButtonStyle={
   right:"30px",
   top:"8px"
 };
+
+
 export default class Card extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
-      <div className="w3-card-4">
-        <div className="w3-tooltip">
+      <div>
+        <EditCardModal  card={this.props.card} modalId={'m'+this.props.card.id}
+        onEditCard={this.props.onEditCard} laneid={this.props.laneid}/>
+        <div className="w3-card-4">
+          <div className="w3-tooltip">
           <span style={editButtonStyle} className="w3-text">
             <i className="fa fa-pencil-square-o"
-            // onClick={() =>
-              //  this.props.onDeleteLane(this.props.lane.id)}
-              >
-            </i>
+             onClick={() =>
+               document.getElementById('m'+this.props.card.id).style.display='block'} />
           </span>
-          <span style={deleteButtonStyle} className="w3-text">
-            <i className="fa fa-window-close" onClick={() =>
-               this.props.onDeleteCard(this.props.laneid,this.props.card.id)}>
-            </i>
-          </span>
-          <div className="w3-container">
-            <h4>{this.props.card.title}</h4>
-            <hr/>
-            <p>{this.props.card.note}</p>
-            <hr/>
-            <p>
-            {this.props.card.labels.map(label =>
-                <Label key={label.id} label={label} onDeleteLabel={this.deleteLabel}/>)}
-            </p>
+            <span style={deleteButtonStyle} className="w3-text">
+              <i className="fa fa-window-close" onClick={() =>
+                 this.props.onDeleteCard(this.props.laneid,this.props.card.id)}>
+              </i>
+            </span>
+            <div className="w3-container">
+              <h4>{this.props.card.title}</h4>
+              <hr/>
+              <p>{this.props.card.note}</p>
+              <hr/>
+              <p>
+              {this.props.card.labels.map(label =>
+                  <Label key={label.id} label={label} onDeleteLabel={this.deleteLabel}/>)}
+              </p>
+            </div>
           </div>
         </div>
       </div>

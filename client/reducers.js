@@ -16,7 +16,7 @@ function reducers(state = [], action) {
 
     case 'UPDATE_LANE':
       return state.map(lane => {
-        if(lane.id === action.id) {
+        if(lane.id == action.id) {
           return Object.assign({}, lane,
           {
             title: action.title
@@ -42,12 +42,13 @@ function reducers(state = [], action) {
       });
 
       case 'UPDATE_CARD':
+
       return state.map(lane => {
-        if(lane.id === action.laneid) {
-            lane.cards.map(card => {
-              if(card.id === action.id)
+        if(lane.id == action.laneid) {
+            return lane.cards.map(card => {
+              if(card.id == action.card.id)
               {
-                return Object.assign({}, card, action.card);
+                return action.card;
               }
               return card;
             })

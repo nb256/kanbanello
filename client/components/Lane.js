@@ -24,14 +24,14 @@ export default class Lane extends React.Component {
   render() {
     return (
         <div>
-          <EditLaneModal  lane={this.props.lane} modalId={this.props.editLaneModalId}
+          <EditLaneModal  lane={this.props.lane} modalId={'m'+this.props.lane.id}
           onEditLane={this.props.onEditLane}/>
           <div className="w3-col m2 w3-center" style={laneStyle}>
             <div className="w3-tooltip">
               <span style={editButtonStyle} className="w3-text">
                 <i className="fa fa-pencil-square-o"
                  onClick={() =>
-                   document.getElementById(this.props.editLaneModalId).style.display='block'} />
+                   document.getElementById('m'+this.props.lane.id).style.display='block'} />
               </span>
               <span style={deleteButtonStyle} className="w3-text">
                 <i className="fa fa-window-close" onClick={() =>
@@ -47,7 +47,7 @@ export default class Lane extends React.Component {
             </div>
               {this.props.lane.cards.map(card =>
                   <Card key={card.id} card={card} onDeleteCard={this.props.onDeleteCard}
-                  laneid={this.props.lane.id}/>)}
+                  laneid={this.props.lane.id} onEditCard={this.props.onEditCard}/>)}
 
             <button className="w3-button w3-block w3-dark-grey" onClick={() =>
                this.props.onCreateCard(this.props.lane.id,

@@ -6,7 +6,6 @@ import actions from '../actions';
 
 
 let addCardModalId = "id123123";
-let editLaneModalId = "id123125";
 
 class Home extends React.Component {
   constructor(props) {
@@ -15,7 +14,6 @@ class Home extends React.Component {
 
   }
   render() {
-    console.log(this.props)
 
 
     return (
@@ -32,7 +30,7 @@ class Home extends React.Component {
         {this.props.allLanes.map(lane =>
           <Lane key={lane.id} lane={lane} onDeleteLane={this.props.onDeleteLane}
           onCreateCard={this.props.onCreateCard} onDeleteCard={this.props.onDeleteCard}
-          editLaneModalId={editLaneModalId} onEditLane={this.props.onEditLane}/>
+          onEditLane={this.props.onEditLane} onEditCard={this.props.onEditCard}/>
         )}
 
         </div>
