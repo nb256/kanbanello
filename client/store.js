@@ -3,27 +3,38 @@ import rootReducer from './reducers';
 
 const defaultState = [
   {
-    id: uuid.v4(),
-    name: 'Todo',
-    notes: [],
-  },
-  {
-    id: uuid.v4(),
-    name: 'In Progress',
-    notes: [],
-  },
-  {
-    id: uuid.v4(),
-    name: 'Review',
-    notes: [],
-  },
+    id: 800,
+    title: 'Lane OnASDASDe',
+    cards: [
+      {
+        id: 1800,
+        title: 'Card One',
+        note: 'Learn React',
+        labels: [
+          {
+            id: 2800,
+            text: 'exLabel',
+            color: 'blue'
+          }
+        ]
+      },
+      {
+        id: 1801,
+        title: 'Card Two',
+        note: 'Do laundry',
+        labels: [
+          {
+            id: 2801,
+            text: 'exLabel2',
+            color: 'red'
+          }
+        ]
+      }
+    ]
+  }      
+
 ];
 
 let store = createStore(rootReducer, defaultState)
 
-store.dispatch({
-  type: 'ADD_TODO',
-  text: 'Read the docs'
-})
-
-console.log(store.getState())
+export default store;

@@ -1,21 +1,53 @@
 import {combineReducers}  from 'redux';
 
 
-function cards(state = [], action) {
-  switch (action.type) {
-    case 'CREATE_CARD':
-      return state.concat(action.payload);
+function reducers(state = [], action) {
 
-    case actionTypes.UPDATE_NOTE:
-      return state.map(note => {
-        if(note.id === action.payload.id) {
-          return Object.assign({}, note, action.payload);
+  switch (action.type) {
+    case 'ADD_LANE':
+      return [
+        ...state,
+        {
+          id: action.id,
+          title: action.title,
+          cards: action.cards
         }
-        return note;
+      ]
+
+    case 'UPDATE_LANE':
+      return state.map(lane => {
+        if(lane.id === action.id) {
+          return Object.assign({}, lane,
+          {
+            title: action.title
+          });
+        }
+        return lane;
       });
 
-    case actionTypes.DELETE_NOTE:
-      return state.filter(note => note.id !== action.payload.id);
+    case 'DELETE_LANE':
+      return state.filter(lane => lane.id !== action.id);
+
+    case 'ADD_CARD':
+      return state.map(lane => {
+        if(lane.id === action.laneid) {
+          return Object.assign({}, lane,
+          {
+            cards: [...lane.cards,
+            {
+              id: action.id,
+              title: action.title,
+              note: action.note,
+              labels: action.labels
+            }]
+          });
+          return lane;
+        }
+        return lane;
+      });
+
+      case 'UPDATE_CARD':
+        return state;
 
     default:
       return state;
@@ -23,7 +55,7 @@ function cards(state = [], action) {
 }
 
 
-function lanes(state = [], action) {
+function cards(state = [], action) {
   switch (action.type) {
     case 'ADD_TODO':
       return state.concat([action.text])
@@ -32,7 +64,9 @@ function lanes(state = [], action) {
   }
 }
 
-export default combineReducers({
-  lanes,
-  cards
-});
+// export default combineReducers({
+//   lanes,
+//   cards
+// });
+
+export default reducers;
