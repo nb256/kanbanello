@@ -1,6 +1,5 @@
 import React from 'react';
 
-let id= 1000000;
 
 
 const mapStateToProps = (state) => ({
@@ -12,7 +11,7 @@ onCreateLane() {
   dispatch({
       type: 'ADD_LANE',
         id: new Date().getUTCMilliseconds(),
-        title: 'tittt',
+        title: 'New Lane',
         cards: []
     });
 },
@@ -55,6 +54,19 @@ onDeleteCard(laneid, id)
       type: 'DELETE_CARD',
       laneid,
       id
+    });
+},
+onCreateLabel(laneid, cardid, value)
+{
+  dispatch({
+      type: 'ADD_LABEL',
+      laneid,
+      cardid,
+      label:{
+        id: new Date().getUTCMilliseconds(),
+        text: value,
+        color: 'blue'
+      }
     });
 }
 

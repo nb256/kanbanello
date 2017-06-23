@@ -10,28 +10,28 @@ try{
     defaultState = [
       {
         id: 800,
-        title: 'Lane OnASDASDe',
+        title: 'Example Lane Title',
         cards: [
           {
             id: 1800,
-            title: 'Card One',
+            title: 'Example Card One',
             note: 'Learn React',
             labels: [
               {
                 id: 2800,
-                text: 'exLabel',
+                text: 'Example Label One',
                 color: 'blue'
               }
             ]
           },
           {
             id: 1801,
-            title: 'Card Two',
-            note: 'Do laundry',
+            title: 'Example Card Two',
+            note: 'Learn Redux',
             labels: [
               {
                 id: 2801,
-                text: 'exLabel2',
+                text: 'Example Label Two',
                 color: 'red'
               }
             ]

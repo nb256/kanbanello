@@ -20,7 +20,8 @@ export default class Card extends React.Component {
     return (
       <div>
         <EditCardModal  card={this.props.card} modalId={'m'+this.props.card.id}
-        onEditCard={this.props.onEditCard} laneid={this.props.laneid}/>
+        onEditCard={this.props.onEditCard} laneid={this.props.laneid}
+        onCreateLabel= {this.props.onCreateLabel}/>
         <div className="w3-card-4">
           <div className="w3-tooltip">
           <span style={editButtonStyle} className="w3-text">

@@ -67,6 +67,34 @@ function reducers(state = [], action) {
         }
         return lane;
       });
+      case 'ADD_LABEL':
+      alert('a')
+      return state.map(lane => {
+        if(lane.id == action.laneid) {
+            const newCards =  lane.cards.map(card => {
+              if(card.id == action.cardid)
+              {
+
+                const newLabels = Object.assign({}, card.labels,
+                  [...card.labels,
+                  action.label]);
+
+                  console.log(card.labels)
+                  console.log(newLabels)
+                return Object.assign({}, card,
+                {
+                  labels: newLabels
+                });
+              }
+              return card;
+            });
+            return Object.assign({}, lane,
+            {
+              cards: newCards
+            });
+        }
+        return lane;
+      });
 
     default:
       return state;

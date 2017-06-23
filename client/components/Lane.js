@@ -47,11 +47,12 @@ export default class Lane extends React.Component {
             </div>
               {this.props.lane.cards.map(card =>
                   <Card key={card.id} card={card} onDeleteCard={this.props.onDeleteCard}
-                  laneid={this.props.lane.id} onEditCard={this.props.onEditCard}/>)}
+                  laneid={this.props.lane.id} onEditCard={this.props.onEditCard}
+                  onCreateLabel= {this.props.onCreateLabel}/>)}
 
             <button className="w3-button w3-block w3-dark-grey" onClick={() =>
                this.props.onCreateCard(this.props.lane.id,
-              {id:31, title:'asdasd', note:'nnooooo', labels:[]})}>+ Add a card</button>
+              {title:'New Card', labels: []})}>+ Add a card</button>
           </div>
         </div>
     );
