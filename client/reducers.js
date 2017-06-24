@@ -68,7 +68,6 @@ function reducers(state = [], action) {
         return lane;
       });
       case 'ADD_LABEL':
-      alert('a')
       return state.map(lane => {
         if(lane.id == action.laneid) {
             const newCards =  lane.cards.map(card => {
