@@ -3,7 +3,7 @@ import NavigationBar from '../pages/NavigationBar';
 import Content from '../pages/Content';
 
 class App extends React.Component {
-  render(){
+  render() {
     return(
         <div className="w3-container">
           <NavigationBar />

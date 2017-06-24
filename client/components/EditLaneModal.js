@@ -1,24 +1,14 @@
 import React from 'react';
+import { formElementsStyle } from '../styles/styles';
 
-const submitButtonStyle =  {
-    margin:"10px",
-    float:"right"
-};
-const formElementsStyle = {
-  margin: "40px",
-  marginBottom: "50px",
-  marginTop: "50px"
+export default class EditLaneModal extends React.Component {
 
-  }
-
-export default class EditLaneModal extends React.Component{
-
-  handleChange(e){
+  handleChange(e) {
     e.preventDefault();
     this.props.onEditLane(this.props.lane.id, this.refs.title.value)
   }
 
-  render(){
+  render() {
     this.handleChange = this.handleChange.bind(this);
 
     return (
@@ -36,6 +26,7 @@ export default class EditLaneModal extends React.Component{
           <br/><br/>
         </form>
       </div>
-    </div> );
+    </div>
+    );
   }
 }
