@@ -16,9 +16,9 @@ http://localhost:3000
 ## [LIVE DEMO](https://kanbanelloo-4e0ec.firebaseapp.com/)
 
 ## Next Objectives
-⋅⋅* Moving cards between Lanes by drag&drop
-⋅⋅* Lane updating and deleting
-⋅⋅* Exporting to JSON
+* Moving cards between Lanes by drag&drop
+* Lane updating and deleting
+* Exporting to JSON
 
 ## Authors
 
