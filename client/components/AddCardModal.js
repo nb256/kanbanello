@@ -1,5 +1,5 @@
 import React from 'react';
-import { submitButtonStyle, formElementsStyle } from '../styles/styles';
+import { floatRightButtonStyle, formElementsStyle } from '../styles/styles';
 
 export default class AddCardModal extends React.Component {
 
@@ -17,7 +17,7 @@ export default class AddCardModal extends React.Component {
   render() {
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    return(
+    return (
       <div id={this.props.modalId} className="w3-modal">
         <div className="w3-modal-content w3-animate-top">
           <header className="w3-container w3-red">
@@ -40,7 +40,7 @@ export default class AddCardModal extends React.Component {
             <br/><br/>
 
           <footer className="w3-container w3-red">
-            <button style={submitButtonStyle} className="w3-btn w3-green" type="submit">
+            <button style={floatRightButtonStyle} className="w3-btn w3-green" type="submit">
             Add Card
             </button>
           </footer>

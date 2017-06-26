@@ -1,5 +1,5 @@
 import React from 'react';
-import { submitButtonStyle, formElementsStyle, modalStyle } from '../styles/styles';
+import { floatRightButtonStyle, formElementsStyle, modalStyle } from '../styles/styles';
 
 export default class EditCardModal extends React.Component {
 
@@ -42,7 +42,7 @@ export default class EditCardModal extends React.Component {
           <br/>
           <label><h4>Add Label:</h4></label>
           <input className="w3-input" ref="labelText" />
-          <button style={submitButtonStyle} className="w3-btn w3-green" type="submit">Add Label
+          <button style={floatRightButtonStyle} className="w3-btn w3-green" type="submit">Add Label
           </button>
           <br/><br/><br/>
         </form>

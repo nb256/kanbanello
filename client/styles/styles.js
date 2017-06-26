@@ -1,35 +1,36 @@
-const submitButtonStyle =  {
-    margin:"10px",
-    float:"right"
+const floatRightButtonStyle = {
+  margin: '10px',
+  float: 'right',
 };
 
 const formElementsStyle = {
-  margin: "40px",
-  marginBottom: "50px",
-  marginTop: "50px"
+  margin: '40px',
+  marginBottom: '50px',
+  marginTop: '50px',
 };
 
-const deleteButtonStyle =  {
-    position:"absolute",
-    right:"10px",
-    top:"8px"
+const deleteButtonStyle = {
+  position: 'absolute',
+  right: '10px ',
+  top: '8px',
 };
-const editButtonStyle={
-  position:"absolute",
-  right:"30px",
-  top:"8px"
+
+const editButtonStyle = {
+  position: 'absolute',
+  right: '30px',
+  top: '8px',
 };
 
 const modalStyle = {
-  textAlign: "left"
+  textAlign: 'left',
 };
 
 const laneStyle = {
-  margin: "15px"
-}
+  margin: '15px',
+};
 
 export {
-  submitButtonStyle,
+  floatRightButtonStyle,
   formElementsStyle,
   deleteButtonStyle,
   editButtonStyle,

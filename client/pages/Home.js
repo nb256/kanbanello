@@ -1,48 +1,39 @@
 import React from 'react';
 import Lane from '../components/Lane';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import AddCardModal from '../components/addCardModal';
 import actions from '../actions';
+import { floatRightButtonStyle } from '../styles/styles';
 
-const clearButtonStyle={
-  float:"right"
-}
+const addCardModalId = new Date().getUTCMilliseconds();
 
-let addCardModalId = new Date().getUTCMilliseconds();
 class Home extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.handleFile = this.handleFile.bind(this);
-  }
-
-  handleFile(e){
+  handleFile() {
     const file = this.fileUpload.files[0];
 
-    var readed = file,read = new FileReader();
+    const readed = file;
+    const read = new FileReader();
 
-      read.readAsBinaryString(readed);
-
-      read.onloadend = function(){
-              try{
-                localStorage.setItem('state', read.result);
-                location.reload();
-              }catch (err)
-              {
-                console.log('localStorage failed for some reason:'+ err);
-              }
-          }
+    read.readAsBinaryString(readed);
+    read.onloadend = () => {
+      try {
+        localStorage.setItem('state', read.result);
+        location.reload();
+      }
+      catch (err) {
+        console.log('localStorage failed for some reason:' + err);
+      }
+    };
 
   }
-  ClearLocalStorage (){
+  ClearLocalStorage() {
     localStorage.clear();
-     location.reload();
+    location.reload();
   }
 
   render() {
-
-
+    this.handleFile = this.handleFile.bind(this);
     return (
       <div>
         <AddCardModal  allLanes={this.props.allLanes} modalId={addCardModalId}
@@ -50,8 +41,8 @@ class Home extends React.Component {
 
         <button className="w3-button w3-black" onClick={() =>
           this.props.onCreateLane()}>+ New Lane</button>
-        <button  className="w3-button w3-black"  onClick={() =>
-          document.getElementById(addCardModalId).style.display='block'} >
+        <button className="w3-button w3-black" onClick={() =>
+          document.getElementById(addCardModalId).style.display = 'block'} >
           + New Card</button>
 
         <div className="w3-row" >
@@ -68,7 +59,7 @@ class Home extends React.Component {
           <input id="input_open" className="input_file" type="file"
           accept='.json' ref={(ref) => this.fileUpload = ref}
             onChange={this.handleFile}/>
-          <button style={clearButtonStyle} className="w3-button w3-red"
+          <button style={floatRightButtonStyle} className="w3-button w3-red"
           onClick={this.ClearLocalStorage}> Clear LocalStorage</button>
         </div>
       </div>
@@ -77,4 +68,4 @@ class Home extends React.Component {
 
 }
 
-export default connect(actions.mapStateToProps,actions.mapDispatchToProps)(Home);
+export default connect(actions.mapStateToProps, actions.mapDispatchToProps)(Home);

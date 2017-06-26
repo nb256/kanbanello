@@ -1,77 +1,69 @@
-import React from 'react';
-
-
-
 const mapStateToProps = (state) => ({
-allLanes: state
+  allLanes: state,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-onCreateLane() {
-  dispatch({
+  onCreateLane() {
+    dispatch({
       type: 'ADD_LANE',
-        id: new Date().getUTCMilliseconds(),
-        title: 'New Lane',
-        cards: []
+      id: new Date().getUTCMilliseconds(),
+      title: 'New Lane',
+      cards: [],
     });
-},
-onDeleteLane(laneId) {
-  dispatch({
+  },
+  onDeleteLane(laneId) {
+    dispatch({
       type: 'DELETE_LANE',
-        id: laneId
+      id: laneId,
     });
-},
-
-onEditLane(laneId, title) {
-  dispatch({
+  },
+  onEditLane(laneId, title) {
+    dispatch({
       type: 'UPDATE_LANE',
-        id: laneId,
-        title
+      id: laneId,
+      title,
     });
-},
-
-onCreateCard(laneid, card)
-{
-  dispatch({
+  },
+  onCreateCard(laneid, card) {
+    dispatch({
       type: 'ADD_CARD',
       laneid,
       cardid: new Date().getUTCMilliseconds(),
-      card
+      card,
     });
-},
+  },
 
-onEditCard(laneid, card)
-{
-  dispatch({
+  onEditCard(laneid, card) {
+    dispatch({
       type: 'UPDATE_CARD',
       laneid,
-      card
+      card,
     });
-},
-onDeleteCard(laneid, id)
-{
-  dispatch({
+  },
+
+  onDeleteCard(laneid, id) {
+    dispatch({
       type: 'DELETE_CARD',
       laneid,
-      id
+      id,
     });
-},
-onCreateLabel(laneid, cardid, value)
-{
-  dispatch({
+  },
+
+  onCreateLabel(laneid, cardid, value) {
+    dispatch({
       type: 'ADD_LABEL',
       laneid,
       cardid,
-      label:{
+      label: {
         id: new Date().getUTCMilliseconds(),
         text: value,
-        color: 'blue'
-      }
+        color: 'blue',
+      },
     });
-}
+  },
 
 });
 
 export default {
-mapStateToProps,
-mapDispatchToProps};
+  mapStateToProps,
+  mapDispatchToProps };

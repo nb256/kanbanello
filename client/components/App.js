@@ -4,7 +4,7 @@ import Content from '../pages/Content';
 
 class App extends React.Component {
   render() {
-    return(
+    return (
         <div className="w3-container">
           <NavigationBar />
           <Content />
