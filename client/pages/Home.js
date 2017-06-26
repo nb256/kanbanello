@@ -9,34 +9,15 @@ const addCardModalId = new Date().getUTCMilliseconds();
 
 class Home extends React.Component {
 
-  handleFile() {
-    const file = this.fileUpload.files[0];
-
-    const readed = file;
-    const read = new FileReader();
-
-    read.readAsBinaryString(readed);
-    read.onloadend = () => {
-      try {
-        localStorage.setItem('state', read.result);
-        location.reload();
-      }
-      catch (err) {
-        console.log('localStorage failed for some reason:' + err);
-      }
-    };
-
-  }
   ClearLocalStorage() {
     localStorage.clear();
     location.reload();
   }
 
   render() {
-    this.handleFile = this.handleFile.bind(this);
     return (
       <div>
-        <AddCardModal  allLanes={this.props.allLanes} modalId={addCardModalId}
+        <AddCardModal allLanes={this.props.allLanes} modalId={addCardModalId}
         onCreateCard={this.props.onCreateCard}/>
 
         <button className="w3-button w3-black" onClick={() =>
@@ -54,14 +35,8 @@ class Home extends React.Component {
         )}
 
         </div>
-        <div className="w3-border-top w3-border-bottom w3-border-green">
-          <label>Import a JSON file: </label>
-          <input id="input_open" className="input_file" type="file"
-          accept='.json' ref={(ref) => this.fileUpload = ref}
-            onChange={this.handleFile}/>
-          <button style={floatRightButtonStyle} className="w3-button w3-red"
-          onClick={this.ClearLocalStorage}> Clear LocalStorage</button>
-        </div>
+        <button style={floatRightButtonStyle} className="w3-button w3-red"
+        onClick={this.ClearLocalStorage}> Clear LocalStorage</button>
       </div>
     );
   }
