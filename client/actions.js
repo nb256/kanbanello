@@ -1,3 +1,7 @@
+const getRandomIntegerFromDate = () => {
+  return new Date().valueOf();
+};
+
 const mapStateToProps = (state) => ({
   allLanes: state,
 });
@@ -6,7 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
   onCreateLane() {
     dispatch({
       type: 'ADD_LANE',
-      id: new Date().getUTCMilliseconds(),
+      id: getRandomIntegerFromDate(),
       title: 'New Lane',
       cards: [],
     });
@@ -28,7 +32,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({
       type: 'ADD_CARD',
       laneid,
-      cardid: new Date().getUTCMilliseconds(),
+      cardid: getRandomIntegerFromDate(),
       card,
     });
   },
@@ -55,7 +59,7 @@ const mapDispatchToProps = (dispatch) => ({
       laneid,
       cardid,
       label: {
-        id: new Date().getUTCMilliseconds(),
+        id: getRandomIntegerFromDate(),
         text: value,
         color: 'blue',
       },

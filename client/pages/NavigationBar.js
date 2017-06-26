@@ -11,7 +11,7 @@ export default class NavigationBar extends React.Component {
            <Link className="w3-bar-item w3-button" to='/iojson'>
            Import & Export JSON File</Link>
            <a href="#" className="w3-bar-item w3-button w3-right">
-           <i className="fa fa-user-o" />Sign Up</a>
+           <i className="fa fa-user-o" /> Sign Up</a>
            <a href="#" className="w3-bar-item w3-button w3-right">
            <i className="fa fa-sign-in" /> Login</a>
       </nav>

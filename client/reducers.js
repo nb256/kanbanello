@@ -70,7 +70,6 @@ function reducers(state = [], action) {
       if (lane.id == action.laneid) {
         const newCards = lane.cards.map(card => {
           if (card.id == action.cardid) {
-
             const newLabels = [...card.labels, action.label];
 
             return Object.assign({}, card,
