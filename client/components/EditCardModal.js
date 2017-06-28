@@ -15,7 +15,7 @@ export default class EditCardModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onCreateLabel(this.props.laneid, this.props.card.id, this.refs.labelText.value)
+    this.props.onCreateLabel(this.props.laneid, this.props.card.id, this.refs.labelText.value, 'red')
     document.getElementById(this.props.modalId).style.display = 'none';
   }
 

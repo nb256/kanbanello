@@ -71,6 +71,28 @@ function reducers(state = [], action) {
         const newCards = lane.cards.map(card => {
           if (card.id == action.cardid) {
             const newLabels = [...card.labels, action.label];
+            return Object.assign({}, card,
+              {
+                labels: newLabels,
+              });
+          }
+          return card;
+        });
+        return Object.assign({}, lane,
+          {
+            cards: newCards,
+          });
+      }
+      return lane;
+    });
+
+  case 'DELETE_LABEL':
+    return state.map(lane => {
+      if (lane.id == action.laneid) {
+        const newCards = lane.cards.map(card => {
+          if (card.id == action.cardid) {
+            const newLabels = card.labels.filter(label =>
+            label.id != action.labelid);
 
             return Object.assign({}, card,
               {

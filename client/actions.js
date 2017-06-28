@@ -53,16 +53,25 @@ const mapDispatchToProps = (dispatch) => ({
     });
   },
 
-  onCreateLabel(laneid, cardid, value) {
+  onCreateLabel(laneid, cardid, text, color) {
     dispatch({
       type: 'ADD_LABEL',
       laneid,
       cardid,
       label: {
         id: getRandomIntegerFromDate(),
-        text: value,
-        color: 'blue',
+        text,
+        color,
       },
+    });
+  },
+
+  onDeleteLabel(laneid, cardid, labelid) {
+    dispatch({
+      type: 'DELETE_LABEL',
+      laneid,
+      cardid,
+      labelid,
     });
   },
 
