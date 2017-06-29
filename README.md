@@ -17,7 +17,6 @@ http://localhost:3000
 
 ## Next Objectives
 * Moving cards between Lanes by drag&drop
-* Label updating and deleting
 * Exporting to JSON
 
 ## Authors
