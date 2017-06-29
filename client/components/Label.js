@@ -12,7 +12,7 @@ export default class Label extends React.Component {
 
   render() {
     return (
-      <span className={'w3-tag w3-' + this.state.color}>{this.state.text}</span>
+      <label className={'w3-tag w3-' + this.state.color}>{this.state.text}</label>
     );
   }
 

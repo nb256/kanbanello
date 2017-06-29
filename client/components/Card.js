@@ -10,7 +10,7 @@ export default class Card extends React.Component {
       <div>
         <EditCardModal card={this.props.card} modalId={'m' + this.props.card.id}
         onEditCard={this.props.onEditCard} laneid={this.props.laneid}
-        onCreateLabel= {this.props.onCreateLabel}/>
+        onCreateLabel= {this.props.onCreateLabel} onDeleteLabel={this.props.onDeleteLabel}/>
         <div className="w3-card-4">
           <div className="w3-tooltip">
           <span style={editButtonStyle} className="w3-text">
@@ -22,15 +22,17 @@ export default class Card extends React.Component {
               <i className="fa fa-window-close" onClick={() =>
                  this.props.onDeleteCard(this.props.laneid, this.props.card.id)} />
             </span>
-            <div className="w3-container">
+            <div className="w3-container" onClick={() =>
+              document.getElementById('m' + this.props.card.id).style.display = 'block'}>
+              <br/>
               <h4>{this.props.card.title}</h4>
               <hr/>
               <p>{this.props.card.note}</p>
               <hr/>
-              <p>
               {this.props.card.labels.map(label =>
-                  <Label key={label.id} label={label} onDeleteLabel={this.deleteLabel}/>)}
-              </p>
+                  <div key={label.id} className="w3-margin">
+                    <Label key={label.id} label={label}/>
+                  </div>)}
             </div>
           </div>
         </div>

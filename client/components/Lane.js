@@ -22,7 +22,10 @@ export default class Lane extends React.Component {
                    this.props.onDeleteLane(this.props.lane.id)} />
               </span>
 
-              <header className="w3-container w3-light-grey">
+              <header className="w3-container w3-light-grey"
+              onClick={() =>
+                document.getElementById('m' + this.props.lane.id).style.display = 'block'}>
+                <br />
                 <h3>{this.props.lane.title} </h3>
                 <h5><span className="w3-badge">{this.props.lane.cards.length}</span></h5>
               </header>
@@ -30,7 +33,8 @@ export default class Lane extends React.Component {
               {this.props.lane.cards.map(card =>
                   <Card key={card.id} card={card} onDeleteCard={this.props.onDeleteCard}
                   laneid={this.props.lane.id} onEditCard={this.props.onEditCard}
-                  onCreateLabel= {this.props.onCreateLabel}/>)}
+                  onCreateLabel= {this.props.onCreateLabel}
+                  onDeleteLabel={this.props.onDeleteLabel}/>)}
 
             <button className="w3-button w3-block w3-dark-grey" onClick={() =>
                this.props.onCreateCard(this.props.lane.id,
