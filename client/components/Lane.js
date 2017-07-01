@@ -14,12 +14,13 @@ export default class Lane extends React.Component {
             <div className="w3-tooltip">
               <span style={editButtonStyle} className="w3-text">
                 <i className="fa fa-pencil-square-o"
-                 onClick={() =>
+                 title="Edit Lane" onClick={() =>
                    document.getElementById('m' + this.props.lane.id).style.display = 'block'} />
               </span>
               <span style={deleteButtonStyle} className="w3-text">
-                <i className="fa fa-window-close" onClick={() =>
-                   this.props.onDeleteLane(this.props.lane.id)} />
+                <i className="fa fa-window-close" title="Delete Lane" onClick={() =>
+                   confirm('Are you sure for deleting the lane "' +
+                   this.props.lane.title + '"?') ? this.props.onDeleteLane(this.props.lane.id) : null}/>
               </span>
 
               <header className="w3-container w3-light-grey"

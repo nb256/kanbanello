@@ -75,6 +75,20 @@ const mapDispatchToProps = (dispatch) => ({
     });
   },
 
+  onMoveCard(laneid, targetlaneid, card) {
+    dispatch({
+      type: 'DELETE_CARD',
+      laneid,
+      id: card.id,
+    });
+    dispatch({
+      type: 'ADD_CARD',
+      laneid: targetlaneid,
+      cardid: card.id,
+      card,
+    });
+  },
+
 });
 
 export default {

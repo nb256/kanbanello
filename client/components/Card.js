@@ -15,12 +15,15 @@ export default class Card extends React.Component {
           <div className="w3-tooltip">
           <span style={editButtonStyle} className="w3-text">
             <i className="fa fa-pencil-square-o"
-             onClick={() =>
+             title="Edit Card" onClick={() =>
                document.getElementById('m' + this.props.card.id).style.display = 'block'} />
           </span>
             <span style={deleteButtonStyle} className="w3-text">
-              <i className="fa fa-window-close" onClick={() =>
-                 this.props.onDeleteCard(this.props.laneid, this.props.card.id)} />
+              <i className="fa fa-window-close" title="Delete Card" onClick={() =>
+                confirm('Are you sure for deleting the card "' +
+                this.props.card.title + '"?') ?
+                this.props.onDeleteCard(this.props.laneid, this.props.card.id)
+                : null} />
             </span>
             <div className="w3-container" onClick={() =>
               document.getElementById('m' + this.props.card.id).style.display = 'block'}>
