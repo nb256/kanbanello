@@ -15,9 +15,6 @@ http://localhost:3000
 
 ## [LIVE DEMO](https://kanbanelloo-4e0ec.firebaseapp.com/)
 
-## Next Objectives
-* Exporting to JSON
-
 ## Authors
 
 * **Naim Buru** - *Initial work* - [nb256](https://github.com/nb256)

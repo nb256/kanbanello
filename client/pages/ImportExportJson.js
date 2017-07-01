@@ -1,7 +1,9 @@
 import React from 'react';
 import { formElementsStyle } from '../styles/styles';
+import { connect } from 'react-redux';
+import actions from '../actions';
 
-export default class ImportExportJson extends React.Component {
+class ImportExportJson extends React.Component {
 
   handleFile() {
     const file = this.fileUpload.files[0];
@@ -34,7 +36,16 @@ export default class ImportExportJson extends React.Component {
           accept='.json' ref={(ref) => this.fileUpload = ref}
             onChange={this.handleFile} style = { formElementsStyle }/>
         </div>
+        <h1> Get the local state as JSON: </h1>
+        <div className="w3-border-top w3-border-bottom w3-border-red">
+          <div className="w3-code jsHigh">
+            {JSON.stringify(this.props.allLanes)}
+          </div>
+        </div>
+
       </div>
     );
   }
 }
+
+export default connect(actions.mapStateToProps, actions.mapDispatchToProps)(ImportExportJson);
