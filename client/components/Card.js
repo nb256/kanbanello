@@ -5,13 +5,20 @@ import { deleteButtonStyle, editButtonStyle } from '../styles/styles';
 
 export default class Card extends React.Component {
 
+  onDragStart(e) {
+    e.dataTransfer.setData('card', JSON.stringify(this.props.card));
+    e.dataTransfer.setData('laneid', this.props.laneid);
+  }
+
+
   render() {
+    this.onDragStart = this.onDragStart.bind(this);
     return (
       <div>
         <EditCardModal card={this.props.card} modalId={'m' + this.props.card.id}
         onEditCard={this.props.onEditCard} laneid={this.props.laneid}
         onCreateLabel= {this.props.onCreateLabel} onDeleteLabel={this.props.onDeleteLabel}/>
-        <div className="w3-card-4">
+        <div className="w3-card-4" onDragStart={this.onDragStart} draggable="true">
           <div className="w3-tooltip">
           <span style={editButtonStyle} className="w3-text">
             <i className="fa fa-pencil-square-o"
@@ -33,9 +40,9 @@ export default class Card extends React.Component {
               <p>{this.props.card.note}</p>
               <hr/>
               {this.props.card.labels.map(label =>
-                  <div key={label.id} className="w3-margin">
-                    <Label key={label.id} label={label}/>
-                  </div>)}
+              <div key={label.id} className="w3-margin">
+                <Label key={label.id} label={label}/>
+              </div>)}
             </div>
           </div>
         </div>

@@ -31,7 +31,8 @@ class Home extends React.Component {
           <Lane key={lane.id} lane={lane} onDeleteLane={this.props.onDeleteLane}
           onCreateCard={this.props.onCreateCard} onDeleteCard={this.props.onDeleteCard}
           onEditLane={this.props.onEditLane} onEditCard={this.props.onEditCard}
-          onCreateLabel={this.props.onCreateLabel} onDeleteLabel={this.props.onDeleteLabel}/>
+          onCreateLabel={this.props.onCreateLabel} onDeleteLabel={this.props.onDeleteLabel}
+          onMoveCard={this.props.onMoveCard}/>
         )}
 
         </div>

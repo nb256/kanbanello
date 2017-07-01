@@ -5,12 +5,24 @@ import { editButtonStyle, deleteButtonStyle, laneStyle } from '../styles/styles'
 
 export default class Lane extends React.Component {
 
+  onDrop(e) {
+    this.props.onMoveCard(e.dataTransfer.getData('laneid'),
+    this.props.lane.id, JSON.parse(e.dataTransfer.getData('card')));
+  }
+
+  onDragOver(e) {
+    e.preventDefault();
+  }
+
   render() {
+    this.onDragOver = this.onDragOver.bind(this);
+    this.onDrop = this.onDrop.bind(this);
     return (
         <div>
           <EditLaneModal lane={this.props.lane} modalId={'m' + this.props.lane.id}
           onEditLane={this.props.onEditLane}/>
-          <div className="w3-col m2 w3-center" style={laneStyle}>
+          <div className="w3-col m2 w3-center" style={laneStyle} onDragOver={this.onDragOver}
+          onDrop={this.onDrop}>
             <div className="w3-tooltip">
               <span style={editButtonStyle} className="w3-text">
                 <i className="fa fa-pencil-square-o"
